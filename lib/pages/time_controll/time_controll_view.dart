@@ -10,8 +10,8 @@ class TimeControllView extends GetView<TimeControllLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.kihn.value
-              ? const CircularProgressIndicator(color: Colors.blueAccent)
+          () => controller.paucek.value
+              ? const CircularProgressIndicator(color: Colors.white)
               : buildError(),
         ),
       ),
@@ -25,7 +25,7 @@ class TimeControllView extends GetView<TimeControllLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.yejzsupm();
+              controller.knulme();
             },
             icon: const Icon(
               Icons.restart_alt,

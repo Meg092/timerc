@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:present_time/pages/time_controll/time_controll_binding.dart';
+import 'package:present_time/pages/time_controll/time_controll_view.dart';
 import 'package:present_time/pages/time_main/time_main_binding.dart';
+import 'package:present_time/pages/time_main/time_main_init.dart';
 import 'package:present_time/pages/time_main/time_main_view.dart';
 import 'package:present_time/pages/time_reload/time_reload_binding.dart';
 import 'package:present_time/pages/time_reload/time_reload_view.dart';
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Machine,
-      initialRoute: '/time_main',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -75,7 +78,9 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Machine = [
+  GetPage(name: '/', page: () => TimeControllView(), binding: TimeControllBinding()),
   GetPage(name: '/time_main', page: () => const TimeMainPage(), binding: TimeMainBinding()),
   GetPage(name: '/time_setting', page: () => TimeSettingPage(), binding: TimeSettingBinding()),
+  GetPage(name: '/time_init', page: () => TimeMainInit()),
   GetPage(name: '/time_reload', page: () => TimeReloadView(), binding: TimeReloadBinding()),
 ];
