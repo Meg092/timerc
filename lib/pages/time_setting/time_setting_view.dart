@@ -89,62 +89,60 @@ class TimeSettingPage extends GetView<TimeSettingLogic> {
                     const SizedBox(
                       height: 10,
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: DateTimePickerWidget(
-                        dateFormat: 'MM/dd/yyyy HH:mm',
-                        initDateTime: controller.destinationTime,
-                        pickerTheme: const DateTimePickerTheme(
-                            backgroundColor: Colors.transparent,
-                            cancel: null,
-                            confirm: null,
-                            titleHeight: 0,
-                            itemTextStyle: TextStyle(color: Colors.white),
-                            title: null),
-                        onChange: (dateTime, List<int> index) async {
-                          controller.destinationTime = dateTime;
-                        },
+                    <Widget>[
+                      Expanded(
+                        child: SizedBox(
+                          child: DateTimePickerWidget(
+                            dateFormat: 'MM/dd/yyyy HH:mm',
+                            initDateTime: controller.destinationTime,
+                            pickerTheme: const DateTimePickerTheme(
+                                backgroundColor: Colors.transparent,
+                                cancel: null,
+                                confirm: null,
+                                titleHeight: 0,
+                                itemTextStyle: TextStyle(color: Colors.white),
+                                title: null),
+                            onChange: (dateTime, List<int> index) async {
+                              controller.destinationTime = dateTime;
+                            },
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 53,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Application Settings',
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )
-                        .decorated(
-                        color: const Color(0xffffba00),
-                        borderRadius: BorderRadius.circular(10))
-                        .gestures(onTap: () async {
-                      if (controller.destinationTime.isBefore(
-                          DateTime.now())) {
-                        Fluttertoast.showToast(
-                            msg: 'Please select a valid time');
-                        return;
-                      }
-                      if (controller.destinationTime
-                          .difference(DateTime.now())
-                          .inMinutes <
-                          30) {
-                        Fluttertoast.showToast(msg: 'At least 30 minutes');
-                        return;
-                      }
-                      final SharedPreferences prefs =
-                      await SharedPreferences.getInstance();
-                      await prefs.setString('destinationTime',
-                          controller.destinationTime.toIso8601String());
-                      Fluttertoast.showToast(msg: 'Had saved successfully');
-                      print(controller.destinationTime);
-                    })
+                      Container(
+                        width: 120,
+                        height: 53,
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'Application',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
+                          .decorated(
+                          color: const Color(0xffffba00),
+                          borderRadius: BorderRadius.circular(10))
+                          .gestures(onTap: () async {
+                        if (controller.destinationTime.isBefore(DateTime.now())) {
+                          Fluttertoast.showToast(msg: 'Please select a valid time');
+                          return;
+                        }
+                        if (controller.destinationTime
+                            .difference(DateTime.now())
+                            .inMinutes <
+                            30) {
+                          Fluttertoast.showToast(msg: 'At least 30 minutes');
+                          return;
+                        }
+                        final SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                        await prefs.setString('destinationTime',
+                            controller.destinationTime.toIso8601String());
+                        Fluttertoast.showToast(msg: 'Had saved successfully');
+                      })
+                    ].toRow(),
+
                   ].toColumn(crossAxisAlignment: CrossAxisAlignment.start),
                 )
                     .decorated(

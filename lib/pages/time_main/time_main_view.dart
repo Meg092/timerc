@@ -16,7 +16,7 @@ class TimeMainPage extends StatefulWidget {
 class _TimeMainPageState extends State<TimeMainPage> {
   final controller = Get.find<TimeMainLogic>();
 
-  void zbabjsbjhvjakk() async {
+  void biahuihius() async {
     final hadNetwork = await InternetConnectionChecker.instance.hasConnection;
     if (!hadNetwork) {
       Get.toNamed('/time_reload');
@@ -26,7 +26,7 @@ class _TimeMainPageState extends State<TimeMainPage> {
   @override
   void initState() {
     // TODO: implement initState
-    zbabjsbjhvjakk();
+    biahuihius();
     super.initState();
   }
 
@@ -34,7 +34,9 @@ class _TimeMainPageState extends State<TimeMainPage> {
     return <Widget>[
       Image.asset(
         'assets/bg1.webp',
-        fit: BoxFit.cover,
+        width: 651,
+        height: 156,
+        fit: BoxFit.fill,
       ),
       Positioned(
           left: 15,
@@ -44,7 +46,9 @@ class _TimeMainPageState extends State<TimeMainPage> {
             height: 71,
             child: Obx(() {
               return Text(
-               controller.type == 0 ? controller.destinationMonthStr.value : controller.destinationYearStr.value,
+                controller.type == 0
+                    ? controller.destinationMonthStr.value
+                    : controller.destinationYearStr.value,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     color: Color(0xffffba00),
@@ -55,14 +59,16 @@ class _TimeMainPageState extends State<TimeMainPage> {
             }),
           )),
       Positioned(
-          left:controller.type == 0 ? 278 : 172,
+          left: controller.type == 0 ? 278 : 172,
           top: 69,
           child: SizedBox(
             width: controller.type == 0 ? 135 : 70,
             height: 71,
             child: Obx(() {
               return Text(
-                controller.type == 0 ? controller.destinationYearStr.value : controller.destinationMonthStr.value,
+                controller.type == 0
+                    ? controller.destinationYearStr.value
+                    : controller.destinationMonthStr.value,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     color: Color(0xffffba00),
@@ -76,7 +82,7 @@ class _TimeMainPageState extends State<TimeMainPage> {
           left: controller.type == 0 ? 158 : 310,
           top: 68,
           child: SizedBox(
-            width:controller.type == 0 ? 100 : 65,
+            width: controller.type == 0 ? 100 : 65,
             height: 71,
             child: Obx(() {
               return Text(
@@ -90,7 +96,6 @@ class _TimeMainPageState extends State<TimeMainPage> {
               );
             }),
           )),
-
       Positioned(
           left: 442,
           top: 69,
@@ -174,7 +179,6 @@ class _TimeMainPageState extends State<TimeMainPage> {
               ),
             ).decorated(
                 color: const Color(0xffffba00),
-
                 borderRadius: BorderRadius.circular(18))),
       ),
       Visibility(
@@ -214,82 +218,104 @@ class _TimeMainPageState extends State<TimeMainPage> {
                   child: <Widget>[
                     Expanded(
                         child: <Widget>[
-                      <Widget>[
-                        Image.asset(
-                          'assets/bg0.webp',
-                          fit: BoxFit.cover,
-                        ),
-                        Positioned(
-                            left: 35,
-                            top: 69,
-                            child: Obx(() {
-                              return Text(
-                                controller.presentMonthStr.value,
-                                style: const TextStyle(
-                                    color: Color(0xff00ff45),
-                                    fontSize: 70,
-                                    height: 0.8,
-                                    fontFamily: kTickingFamily),
-                              );
-                            })),
-                        Positioned(
-                            left: 177,
-                            top: 69,
-                            child: Obx(() {
-                              return Text(
-                                controller.presentDayStr.value,
-                                style: const TextStyle(
-                                    color: Color(0xff00ff45),
-                                    fontSize: 70,
-                                    height: 0.8,
-                                    fontFamily: kTickingFamily),
-                              );
-                            })),
-                        Positioned(
-                            left: 280,
-                            top: 69,
-                            child: Obx(() {
-                              return Text(
-                                controller.presentYearStr.value,
-                                style: const TextStyle(
-                                    color: Color(0xff00ff45),
-                                    fontSize: 70,
-                                    height: 0.8,
-                                    fontFamily: kTickingFamily),
-                              );
-                            })),
-                        Positioned(
-                            left: 458,
-                            top: 69,
-                            child: Obx(() {
-                              return Text(
-                                controller.presentHourStr.value,
-                                style: const TextStyle(
-                                    color: Color(0xff00ff45),
-                                    fontSize: 70,
-                                    height: 0.8,
-                                    fontFamily: kTickingFamily),
-                              );
-                            })),
-                        Positioned(
-                            left: 560,
-                            top: 69,
-                            child: Obx(() {
-                              return Text(
-                                controller.presentMinuteStr.value,
-                                style: const TextStyle(
-                                    color: Color(0xff00ff45),
-                                    fontSize: 70,
-                                    height: 0.8,
-                                    fontFamily: kTickingFamily),
-                              );
-                            }))
-                      ].toStack(alignment: Alignment.center),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _item()
-                    ].toColumn(mainAxisAlignment: MainAxisAlignment.center)),
+                          <Widget>[
+                            Image.asset(
+                              'assets/bg0.webp',
+                              width: 651,
+                              height: 156,
+                              fit: BoxFit.fill,
+                            ),
+                            Positioned(
+                                left: 15,
+                                top: 69,
+                                child: SizedBox(
+                                  width: 135,
+                                  child: Obx(() {
+                                    return Text(
+                                      controller.presentMonthStr.value,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          color: Color(0xff00ff45),
+                                          fontSize: 70,
+                                          height: 0.8,
+                                          fontFamily: kTickingFamily),
+                                    );
+                                  }),
+                                )),
+                            Positioned(
+                                left: 158,
+                                top: 69,
+                                child: SizedBox(
+                                  width: 100,
+                                  child: Obx(() {
+                                    return Text(
+                                      controller.presentDayStr.value,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          color: Color(0xff00ff45),
+                                          fontSize: 70,
+                                          height: 0.8,
+                                          fontFamily: kTickingFamily),
+                                    );
+                                  }),
+                                )),
+                            Positioned(
+                                left: 278,
+                                top: 69,
+                                child: SizedBox(
+                                  width: 135,
+                                  child: Obx(() {
+                                    return Text(
+                                      controller.presentYearStr.value,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          color: Color(0xff00ff45),
+                                          fontSize: 70,
+                                          height: 0.8,
+                                          fontFamily: kTickingFamily),
+                                    );
+                                  }),
+                                )),
+                            Positioned(
+                                left: 442,
+                                top: 69,
+                                child: SizedBox(
+                                  width: 80,
+                                  child: Obx(() {
+                                    return Text(
+                                      controller.presentHourStr.value,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          color: Color(0xff00ff45),
+                                          fontSize: 70,
+                                          height: 0.8,
+                                          fontFamily: kTickingFamily),
+                                    );
+                                  }),
+                                )),
+                            Positioned(
+                                left: 552,
+                                top: 69,
+                                child: SizedBox(
+                                  width: 80,
+                                  child: Obx(() {
+                                    return Text(
+                                      controller.presentMinuteStr.value,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                          color: Color(0xff00ff45),
+                                          fontSize: 70,
+                                          height: 0.8,
+                                          fontFamily: kTickingFamily),
+                                    );
+                                  }),
+                                ))
+                          ].toStack(alignment: Alignment.center),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          _item()
+                        ].toColumn(mainAxisAlignment: MainAxisAlignment.center)),
                     Image.asset(
                       'assets/icon.webp',
                       fit: BoxFit.cover,
@@ -307,7 +333,9 @@ class _TimeMainPageState extends State<TimeMainPage> {
                     size: 36,
                     color: Color(0xffd3d3d3),
                   ).gestures(onTap: () {
-                    Get.toNamed('/time_setting',arguments: controller.destinationTime)?.then((_) {
+                    Get.toNamed('/time_setting',
+                        arguments: controller.destinationTime)
+                        ?.then((_) {
                       controller.getDate();
                     });
                   }))

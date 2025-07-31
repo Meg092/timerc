@@ -25,9 +25,9 @@ void main() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final appStartUp = prefs.getBool('appStartUp');
   if (appStartUp == null) {
-   await prefs.setBool('appStartUp', true);
-   await prefs.setBool('skipSplashScreen', true);
-   await prefs.setString('destinationTime', DateTime.now().add(const Duration(days: 2*365)).toIso8601String());
+    await prefs.setBool('appStartUp', true);
+    await prefs.setBool('skipSplashScreen', true);
+    await prefs.setString('destinationTime', DateTime.now().add(const Duration(days: 2*365)).toIso8601String());
   }
   runApp(const MyApp());
 }
@@ -77,6 +77,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 List<GetPage<dynamic>> Machine = [
   GetPage(name: '/', page: () => TimeControllView(), binding: TimeControllBinding()),
   GetPage(name: '/time_main', page: () => const TimeMainPage(), binding: TimeMainBinding()),
